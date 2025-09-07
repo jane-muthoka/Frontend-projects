@@ -1,2 +1,4 @@
 All projects from roadmap.sh
-Project url: https://roadmap.sh/projects/single-page-cv
+Project urls: 
+https://roadmap.sh/projects/single-page-cv
+https://roadmap.sh/projects/basic-html-website
