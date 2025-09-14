@@ -53,3 +53,7 @@ nav a:hover {
   border: 1px solid #000;
   min-height: 100vh;
 }
+#container img{
+    width: 300px;
+    height: 200px;
+}
