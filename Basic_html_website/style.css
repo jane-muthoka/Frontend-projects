@@ -84,9 +84,14 @@ footer {
 form{
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    background-color: tomato;
+    gap: 1px;
+    max-width: 300px;
+    justify-content: center;
+    
 }
-
-                                                                                                                                                                  ccccccccccccccccccccccccccccccccccccccyh vjnh nnnngygv cvcvn                      cvcv                          vvvvv vvbbv vvtfgrtgtr
+form button{
+    background-color: green;
+    color: white;
+    margin-bottom: 10px;
+    height: 2rem;
+}
