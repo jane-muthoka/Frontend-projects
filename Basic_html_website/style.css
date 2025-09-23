@@ -87,6 +87,7 @@ form{
     gap: 1px;
     max-width: 300px;
     justify-content: center;
+    background-color: rgb(222, 207, 207);;
     
 }
 form button{
@@ -94,4 +95,14 @@ form button{
     color: white;
     margin-bottom: 10px;
     height: 2rem;
+}
+form button:hover{
+    background-color: darkgreen;
+    cursor: pointer;
+}
+#contacts{
+    padding: 20px;
+    text-align: center;
+    justify-content: center;
+    font-style: oblique;
 }
