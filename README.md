@@ -1,5 +1,7 @@
-All projects from roadmap.sh
-Project urlss for all projects: 
-https://roadmap.sh/projects/single-page-cv
-https://roadmap.sh/projects/basic-html-website
-https://roadmap.sh/projects/portfolio-website
+<h6>All projects from roadmap.sh</h6>
+Project urls for all projects: 
+<ul>
+<li>https://roadmap.sh/projects/single-page-cv</li>
+<li>https://roadmap.sh/projects/basic-html-website</li>
+<li>https://roadmap.sh/projects/portfolio-website</li>
+</ul>
