@@ -4,4 +4,5 @@ Project urls for all projects:
 <li>https://roadmap.sh/projects/single-page-cv</li>
 <li>https://roadmap.sh/projects/basic-html-website</li>
 <li>https://roadmap.sh/projects/portfolio-website</li>
+<li>https://roadmap.sh/projects/changelog-component</li>
 </ul>
