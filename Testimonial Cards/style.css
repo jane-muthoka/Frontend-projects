@@ -1,0 +1,128 @@
+
+.black{
+    background-color: rgb(240, 237, 234);
+    width: 300px;
+    height: 250px;
+    margin: 20px;
+}
+.black p{
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    text-align: center;
+}
+.photo{
+    display: flex;
+    flex-direction: row;
+    
+}
+.photo img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+
+}
+.photo h3, .photo h2{
+    color:black;
+}
+
+
+.white{
+    background-color: white;
+    width: 300px;
+    height: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid black;
+    padding: 10px;
+    margin:20px;
+}
+.white img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.two-side{
+    display: flex;
+    flex-direction: row;
+    max-width: 70%;
+    gap: 20px;
+}
+.two-side img{
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+.side{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    margin-bottom: 10px;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+.star-rating i {
+    color: gold; /* Full stars will be gold */
+    font-size: 20px;
+}
+
+/* Half-star can have a different class if needed 
+.fa-star-half-alt {
+    color: #FFD700; /* Adjust the color for the half-star 
+}
+*/
+.slider{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    gap: 20px;
+    padding: 20px;
+    scroll-behavior: smooth;
+    border: 1px solid black;
+    position: relative;
+    width: 70%;
+}
+
+.slide{
+    position: relative; /* allow absolute positioning of buttons */
+    display: flex;
+    align-items: center;
+    gap:20px;
+    overflow: hidden;
+    justify-content: center;
+}
+
+.slider img{
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+#previous, #next{
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    display: flex;
+}
+
+#previous{ left: 30%; }
+#next{ right: 30%; }
