@@ -1,0 +1,130 @@
+:root {
+  --size: 140px;        /* Diameter of the whole circle */
+  --percent: 20;        /* Profile completeness percentage (0–100) */
+  --track-color: #e6d5db;   /* Background ring (unfilled part) color */
+  --progress-color: #06b6d4;/* Foreground ring (filled part) color */
+  --bg-color: #e4cece;     /* Inner circle color (creates the "hole") */
+  --text-color: #0f172a;/* Text color for percent and label */
+  
+}
+
+.circle {
+  width: var(--size);   /* Set width based on the --size variable */
+  height: var(--size);  /* Set height to same value to make it a square */
+  border-radius: 50%;   /* Rounds the square into a perfect circle */
+  
+  /* Background is painted with a conic-gradient: 
+     - First part = progress color, filling `--percent%` of the circle
+     - Remaining part = track color */
+  background:
+    conic-gradient(
+      var(--progress-color) calc(var(--percent) * 1%), /* progress portion */
+      var(--track-color) 0                            /* rest of the circle */
+    );
+
+  display: grid;        /* Use grid for easy centering */
+  place-items: center;  /* Center children both horizontally and vertically */
+  font-family: system-ui, sans-serif; /* Use a clean default font */
+  position: relative;
+  align-items: center;
+  background-color: #21bd43;   /* Needed so ::before (inner circle) can be absolutely positioned */
+}
+
+.circle::before {
+  content: "";          /* Required for pseudo-elements */
+  position: absolute;   /* Position relative to .circle container */
+  
+  /* Inner circle size: slightly smaller than outer circle 
+     (subtract 24px so the ring around is visible) */
+  width: calc(var(--size) - 24px);
+  height: calc(var(--size) - 24px);
+  
+  border-radius: 50%;   /* Makes it a smaller circle */
+  background: var(--bg-color); /* Fill with white (or background color) */
+}
+
+.label {
+  position: relative;   /* Keeps text above the ::before circle */
+  text-align: center;   /* Center-align the text inside */
+  z-index: 1;           /* Ensure text is on top of inner circle */
+  color: var(--text-color); /* Apply the text color */
+}
+
+.label .percent {
+  font-size: 1.2rem;    /* Larger font size for percentage */
+  font-weight: bold;     /* Bold text */
+  line-height: 2;       /* Tight line spacing (no extra space above/below) */
+  color: #a4083c;
+}
+
+.label .text {
+  font-size: 0.7rem;    /* Smaller font size for label text */
+  color: #21bd43;       /* Slightly lighter/dimmed gray color */
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 10px;
+    gap: 20px;
+
+}
+form{
+    background-color: white;
+    padding: 20px;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-right: 30px;
+}
+.form-group{
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-weight: bold;
+}
+button{
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.completeness{
+  margin-top: 100px;
+  color:black;
+  font-weight: bold;
+}
+.last-cards{
+  list-style-type: none;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: lightgray;
+  border-radius: 10px;
+  height: 10em;
+}
+s{
+  color: rgb(135, 130, 130);
+}
+.eye-icon {
+      position: absolute;
+      top: 50%;
+      right: 25px;
+      transform: translateY(-50%);
+      cursor: pointer;
+}
+.eye-icons {
+      position: absolute;
+      top: 32%;
+      right: 25px;
+      transform: translateY(-50%);
+      cursor: pointer;
+}
+.form{
+  position: relative;
+}

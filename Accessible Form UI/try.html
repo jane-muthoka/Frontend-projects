@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Profile Completeness Circle</title>
+<style>
+  :root{
+    --size: 140px;            /* circle diameter */
+    --stroke: 12px;          /* ring thickness */
+    --bg: #e6e9ee;           /* background ring color */
+    --accent: linear-gradient(90deg,#4ade80,#06b6d4); /* gradient for foreground (used via mask) */
+    --text-color: #0f172a;
+    --anim-duration: 900ms;
+  }
+
+  .profile-wrap{
+    display: inline-grid;
+    place-items: center;
+    width: var(--size);
+    height: var(--size);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  /* SVG scales with container */
+  svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg); /* start at top */
+    display: block;
+  }
+
+  /* text centered on top of SVG */
+  .center {
+    position: absolute;
+    width: var(--size);
+    height: var(--size);
+    display: grid;
+    place-items: center;
+    pointer-events: none;
+    color: var(--text-color);
+  }
+
+  .percent {
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .label {
+    font-size: .65rem;
+    color: #475569;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* make ring container relative so center can overlay */
+  .ring-container {
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+  }
+
+  /* stroke styling applied to circles via CSS variables */
+  circle {
+    fill: none;
+    stroke-linecap: round;
+    stroke-width: var(--stroke);
+  }
+
+  .bg-ring {
+    stroke: var(--bg);
+  }
+
+  /* foreground ring uses stroke-dasharray to show progress. We animate stroke-dashoffset */
+  .fg-ring {
+    stroke: url(#grad); /* reference to SVG gradient */
+    transition: stroke-dashoffset var(--anim-duration) cubic-bezier(.2,.9,.2,1);
+    transform-origin: center;
+  }
+
+  /* small responsive tweak */
+  @media (max-width:420px){
+    :root{ --size: 110px; --stroke:10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Example usage: set data-percent attribute to initial percentage (0-100) -->
+<div class="profile-wrap">
+  <div class="ring-container" role="img" aria-label="Profile completeness: 72%" tabindex="0" data-percent="72">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <!-- Gradient definition -->
+      <defs>
+        <linearGradient id="grad" x1="0" x2="1" y1="0" y2="0">
+          <stop offset="0%" stop-color="#4ade80"/>
+          <stop offset="100%" stop-color="#06b6d4"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Note: radius = (50 - stroke/2) if scale is 0-100 viewBox -->
+      <!-- We'll compute dasharray in JS based on the circle circumference -->
+      <circle class="bg-ring" cx="50" cy="50" r="42"></circle>
+      <circle class="fg-ring" cx="50" cy="50" r="42"></circle>
+    </svg>
+
+    <div class="center" aria-hidden="false">
+      <div>
+        <div class="percent">72%</div>
+        <div class="label">Complete</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/*
+  Small script to:
+  - compute circumference for the ring (r=42 in the SVG)
+  - set stroke-dasharray and stroke-dashoffset to display the percent
+  - update the percentage text and accessible label
+  - API: change data-percent attribute or call setPercent(el, value)
+*/
+
+(function(){
+  function setPercent(container, percent){
+    percent = Math.max(0, Math.min(100, Number(percent) || 0));
+    const svg = container.querySelector('svg');
+    const fg = svg.querySelector('.fg-ring');
+    const bg = svg.querySelector('.bg-ring');
+
+    // radius from SVG circle (r attribute)
+    const r = parseFloat(fg.getAttribute('r'));
+    const circumference = 2 * Math.PI * r;
+
+    fg.style.strokeDasharray = circumference;
+    fg.style.strokeDashoffset = circumference; // initially hide
+
+    // compute offset for given percent
+    const offset = circumference * (1 - percent / 100);
+    // set final offset (browser will animate if changed)
+    requestAnimationFrame(() => {
+      fg.style.strokeDashoffset = offset;
+    });
+
+    // update text
+    const pctText = container.querySelector('.percent');
+    if(pctText) pctText.textContent = Math.round(percent) + '%';
+
+    // update aria-label
+    container.setAttribute('aria-label', 'Profile completeness: ' + Math.round(percent) + '%');
+    container.setAttribute('data-percent', percent);
+  }
+
+  // initialize all ring containers on the page
+  document.querySelectorAll('.ring-container').forEach(function(container){
+    const initial = container.getAttribute('data-percent') || 0;
+    setPercent(container, initial);
+  });
+
+  // expose a global helper (optional)
+  window.setProfilePercent = function(selectorOrElement, value){
+    const el = (typeof selectorOrElement === 'string') ? document.querySelector(selectorOrElement) : selectorOrElement;
+    if(!el) return;
+    setPercent(el, value);
+  };
+
+  // Example usage if you want to animate after load:
+  // setTimeout(() => window.setProfilePercent('.ring-container', 85), 600);
+})();
+</script>
+</body>
+</html>

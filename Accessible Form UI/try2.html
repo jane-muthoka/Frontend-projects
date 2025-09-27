@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Profile Completeness Circle (No JS)</title>
+<style>
+  :root {
+    --size: 140px;
+    --percent: 72; /* <-- change this value (0–100) */
+    --track-color: #e6e9ee;
+    --progress-color: #06b6d4;
+    --bg-color: #fff;
+    --text-color: #0f172a;
+  }
+
+  .circle {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    background:
+      conic-gradient(
+        var(--progress-color) calc(var(--percent) * 1%),
+        var(--track-color) 0
+      );
+    display: grid;
+    place-items: center;
+    font-family: system-ui, sans-serif;
+    position: relative;
+  }
+
+  .circle::before {
+    content: "";
+    position: absolute;
+    width: calc(var(--size) - 24px);
+    height: calc(var(--size) - 24px);
+    border-radius: 50%;
+    background: var(--bg-color);
+  }
+
+  .label {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    color: var(--text-color);
+  }
+  .label .percent {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .label .text {
+    font-size: 0.7rem;
+    color: #475569;
+  }
+</style>
+</head>
+<body>
+
+<div class="circle">
+  <div class="label">
+    <div class="percent">72%</div>
+    <div class="text">Complete</div>
+  </div>
+</div>
+
+</body>
+</html>
