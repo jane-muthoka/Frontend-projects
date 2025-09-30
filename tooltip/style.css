@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Flexible grid layout */
+  gap: 2px;
+  width: 50px;
+}
+
+img {
+  object-fit: cover; /* Ensures images maintain their aspect ratio without distortion */
+}
+
+.img1 {
+  width: 100%; /* Custom width */
+  height: 250px; /* Custom height */
+}
+
+.img2 {
+  width: 100%;
+  height: 300px;
+}
+
+.img3 {
+  width: 100%;
+  height: 200px;
+}
+
+.img4 {
+  width: 100%;
+  height: 350px;
+}
+.img5 {
+  width: 100%;
+  height: 400px;
+}
+.img6 {
+  width: 100%;
+  height: 150px;
+}
