@@ -50,10 +50,10 @@
 }
 
 /* Per-item example overrides (change these values to customize each image) */
-.item1{ --grid-image-width: 100%; --grid-image-height: 520px; }
+.item1{ --grid-image-width: 100%; --grid-image-height: 600px; }
 .item2{ --grid-image-width: 100%; --grid-image-height: 300px; }
 .item3{ --grid-image-width: 100%; --grid-image-height: 420px; }
-.item4{ --grid-image-width: 100%; --grid-image-height: 380px; }
+.item4{ --grid-image-width: 100%; --grid-image-height: 200px; }
 .item5{ --grid-image-width: 100%; --grid-image-height: 360px; }
 .item6{ --grid-image-width: 100%; --grid-image-height: 300px; }
 
