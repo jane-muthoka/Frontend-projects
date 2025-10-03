@@ -6,15 +6,10 @@
 */
 
 :root{
-	--grid-container-width: 900px; /* overall grid width (px or %) */
+	--grid-container-width: 1000px; /* overall grid width (px or %) */
 	--grid-row-height: 500px;      /* fixed row height to maintain 2 rows */
-	--grid-gap: 15px;
-
-	/* global default image sizing (can be px, %, etc.) */
-	--grid-image-width: 100%;
-	--grid-image-height: var(--grid-row-height);
+	--grid-gap: 10px;
 }
-
 /* Container: fixed to 3 columns and 2 rows */
 .container{
 	width: var(--grid-container-width);
@@ -25,24 +20,13 @@
 	gap: var(--grid-gap);
 	align-items: center;
 	justify-items: center;
+	background-color: blue;
 }
 
-/* Each grid cell centers content so images smaller than cell are centered */
-.container > div{
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	border-radius: 10px;
-	background: #fff0; /* transparent by default */
-}
+
 
 /* Default image style uses variables; per-item overrides can set --grid-image-width/height */
 .container img{
-	width: var(--grid-image-width);
-	height: var(--grid-image-height);
 	object-fit: cover;
 	display: block;
 	border-radius: 8px;
