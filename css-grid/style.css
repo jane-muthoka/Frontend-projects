@@ -1,70 +1,94 @@
-/* CSS Grid layout with customizable per-image width & height
-	 Usage:
-	 - Change global defaults in :root (--grid-container-width, --grid-row-height, --grid-image-width, --grid-image-height)
-	 - Override per-item: .item1 { --grid-image-width: 80%; --grid-image-height: 200px; }
-	 - Keep grid at 3 columns x 2 rows. Images are centered in their grid cell.
-*/
-
-:root{
-	--grid-container-width: 1000px; /* overall grid width (px or %) */
-	--grid-row-height: 500px;      /* fixed row height to maintain 2 rows */
-	--grid-gap: 10px;
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-/* Container: fixed to 3 columns and 2 rows */
-.container{
-	width: var(--grid-container-width);
-	margin: 24px auto;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: repeat(2, var(--grid-row-height));
-	gap: var(--grid-gap);
-	align-items: center;
-	justify-items: center;
-	background-color: blue;
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
 }
-
-
-
-/* Default image style uses variables; per-item overrides can set --grid-image-width/height */
-.container img{
-	object-fit: cover;
-	display: block;
-	border-radius: 8px;
-	max-width: 100%;
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center;
+  width: 70%;
+  align-items: center;
+  box-shadow: black 10px 10px 10px;
 }
 
-/* Per-item example overrides (change these values to customize each image) */
-.item1{ --grid-image-width: 100%; --grid-image-height: 600px; }
-.item2{ --grid-image-width: 100%; --grid-image-height: 300px; }
-.item3{ --grid-image-width: 100%; --grid-image-height: 420px; }
-.item4{ --grid-image-width: 100%; --grid-image-height: 200px; }
-.item5{ --grid-image-width: 100%; --grid-image-height: 360px; }
-.item6{ --grid-image-width: 100%; --grid-image-height: 300px; }
-
-/* Maintain 3 columns x 2 rows by default; change any of these to span more columns/rows */
-.item1{ grid-column: span 1; grid-row: span 1; }
-.item2{ grid-column: span 1; grid-row: span 1; }
-.item3{ grid-column: span 1; grid-row: span 1; }
-.item4{ grid-column: span 1; grid-row: span 1; }
-.item5{ grid-column: span 1; grid-row: span 1; }
-.item6{ grid-column: span 1; grid-row: span 1; }
-
-/* Simple hover style */
-.container > div:hover img{
-	transform: scale(1.03);
-	transition: transform 0.25s ease;
+.image-grid img:nth-child(1) {
+  grid-area: 1 / 1 / 3 / 2;
+}
+.image-grid img:nth-child(2) {
+  grid-area: 3 / 1 / 4 / 2;
+}
+.image-grid img:nth-child(3) {
+  grid-area: 1 / 2 / 2 / 3;
+}
+.image-grid img:nth-child(4) {
+  grid-area: 2 / 2 / 4 / 3;
+}
+.image-grid img:nth-child(5) {
+  grid-area: 1 / 3 / 3 / 4;
+}
+.image-grid img:nth-child(6) {
+  grid-area: 3 / 3 / 4 / 4;
 }
 
-/* Responsive: collapse to single column on small screens */
-@media (max-width: 720px){
-	:root{ --grid-container-width: 100%; }
-	.container{
-		grid-template-columns: 1fr;
-		grid-template-rows: repeat(6, var(--grid-row-height));
-	}
-	/* adjust default image width for small screens */
-	.container img{ width: 90%; }
+@media (max-width: 600px) {
+  .image-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .image-grid img:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .image-grid img:nth-child(2) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .image-grid img:nth-child(3) {
+    grid-area: 1 / 2 / 2 / 3;
+  }
+  .image-grid img:nth-child(4) {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  .image-grid img:nth-child(5) {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .image-grid img:nth-child(6) {
+    grid-area: 3 / 2 / 4 / 3;
+  }
 }
 
-/* End */
+@media (max-width: 400px) {
+  .image-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+  }
 
+  .image-grid img:nth-child(1) {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  .image-grid img:nth-child(2) {
+    grid-area: 2 / 1 / 3 / 2;
+  }
+  .image-grid img:nth-child(3) {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+  .image-grid img:nth-child(4) {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+  .image-grid img:nth-child(5) {
+    grid-area: 5 / 1 / 6 / 2;
+  }
+  .image-grid img:nth-child(6) {
+    grid-area: 6 / 1 / 7 / 2;
+  }
+}
