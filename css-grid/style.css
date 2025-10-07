@@ -74,7 +74,7 @@ body{
   }
 
   .image-grid img:nth-child(1) {
-    grid-area:  / 1 / 2 / 2;
+    grid-area:  2/ 1 / 2 / 2;
   }
   .image-grid img:nth-child(2) {
     grid-area: 2 / 1 / 3 / 2;
