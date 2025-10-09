@@ -1,29 +1,24 @@
-* {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
             display: flex;
             justify-content: center;
-            padding-top: 100px;
         }
 
         nav {
-            background: white;
-            padding: 20px 40px;
-            border-radius: 50px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            background-color: hsl(0, 80%, 10%);
+            width: 100%;
+            margin-top: 30px;
+            height: 200px;
+            
         }
 
         nav ul {
             list-style: none;
-            display: flex;
-            gap: 10px;
+            display: inline-flex;
+            gap: 60px;
         }
 
         nav ul li {
@@ -34,12 +29,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 50px;
+            width: 100%;
             height: 50px;
             text-decoration: none;
-            color: #667eea;
+            color: #818ab3;
             font-size: 20px;
-            border-radius: 50%;
+            border-radius: 10%;
             transition: all 0.3s ease;
         }
 
@@ -58,7 +53,7 @@
             transform: translateX(-50%) translateY(-10px);
             background: #333;
             color: white;
-            padding: 8px 12px;
+            padding: 8px 12px; /*top/bottom  left/right*/
             border-radius: 6px;
             font-size: 14px;
             white-space: nowrap;
