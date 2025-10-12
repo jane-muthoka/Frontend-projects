@@ -7,23 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tabs">
-        <div class="tab active" data-tab="1">Tab 1</div>
-        <div class="tab" data-tab="2">Tab 2</div>
-        <div class="tab" data-tab="3">Tab 3</div>
+    <div class="tabs-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="tab1">Home</button>
+            <button class="tab-button" data-tab="tab2">About</button>
+            <button class="tab-button" data-tab="tab3">Services</button>
+            <button class="tab-button" data-tab="tab4">Contact</button>
+        </div>
+
+        <div class="tab-contents">
+            <div id="tab1" class="tab-content active">
+                <h2>Welcome Home</h2>
+                <p>This is the home tab content. It's displayed by default when the page loads. The tabs component uses basic JavaScript DOM manipulation to switch between different content sections. Click on the other tabs above to see the content change dynamically.</p>
+            </div>
+
+            <div id="tab2" class="tab-content">
+                <h2>About Us</h2>
+                <p>This is the about section. Here you can learn more about our company, mission, and values. We're dedicated to providing excellent service and creating meaningful experiences for our users through clean, functional web design.</p>
+            </div>
+
+            <div id="tab3" class="tab-content">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of services including web development, UI/UX design, mobile app development, and digital marketing solutions. Our team of experts is committed to delivering high-quality results that exceed expectations.</p>
+            </div>
+
+            <div id="tab4" class="tab-content">
+                <h2>Get In Touch</h2>
+                <p>Have questions or want to work with us? Feel free to reach out! You can contact us via email at info@example.com or call us at (555) 123-4567. We're always happy to hear from potential clients and partners.</p>
+            </div>
+        </div>
     </div>
-    <div class="tab-content active" data-tab="1">
-        <h2>Content for Tab 1</h2>
-        <p>This is the content for the first tab.</p>
-    </div>
-    <div class="tab-content" data-tab="2">
-        <h2>Content for Tab 2</h2>
-        <p>This is the content for the second tab.</p>
-    </div>
-    <div class="tab-content" data-tab="3">
-        <h2>Content for Tab 3</h2>
-        <p>This is the content for the third tab.</p>
-    </div>
+
     <script src="index.js"></script>
 </body>
 </html>
