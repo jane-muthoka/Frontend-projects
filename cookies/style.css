@@ -2,9 +2,9 @@ body{
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #e6ebe5;
 }
-.cookie-box{
+#cookie-box{
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -13,10 +13,10 @@ body{
     width: 300px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-.cookie-box p{
+#cookie-box p{
     margin-top: 0;
 }
-.cookie-box button{
+#cookie-box button{
     background-color: #28a745;
     color: #fff;
     border: none;
