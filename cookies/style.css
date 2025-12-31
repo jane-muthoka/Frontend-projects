@@ -24,3 +24,7 @@ body{
     border-radius: 3px;
     cursor: pointer;
 }
+#cookie_notification{
+    background-color: #28a745;
+    color:#28a745;
+}
